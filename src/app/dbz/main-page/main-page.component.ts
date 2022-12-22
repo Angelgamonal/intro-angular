@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Character {
-  name: string;
-  power: number;
-}
+import { Character } from '../interfaces/dbz.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -23,20 +19,13 @@ export class MainPageComponent {
   ];
 
   newCharacter: Character = {
-    name: '',
-    power: 0,
+    name: 'Roshi',
+    power: 1010,
   };
 
-  addCharacter() {
-    if (this.newCharacter.name.trim().length === 0) {
-      return alert('Escribe un personaje');
-    }
-
-    this.characters.push(this.newCharacter);
-
-    this.newCharacter = {
-      name: '',
-      power: 0,
-    };
+  addNewCharacter(argument: Character) {
+    console.log('main-page->', argument);
+    debugger;
+    this.characters.push(argument);
   }
 }
